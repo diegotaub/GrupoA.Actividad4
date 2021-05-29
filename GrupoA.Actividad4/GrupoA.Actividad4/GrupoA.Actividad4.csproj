@@ -53,6 +53,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormComprobanteInscripcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormComprobanteInscripcion.Designer.cs">
+      <DependentUpon>FormComprobanteInscripcion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConfirmacionMaterias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConfirmacionMaterias.Designer.cs">
+      <DependentUpon>FormConfirmacionMaterias.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDeclaracionJurada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +87,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormComprobanteInscripcion.resx">
+      <DependentUpon>FormComprobanteInscripcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConfirmacionMaterias.resx">
+      <DependentUpon>FormConfirmacionMaterias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDeclaracionJurada.resx">
       <DependentUpon>FormDeclaracionJurada.cs</DependentUpon>

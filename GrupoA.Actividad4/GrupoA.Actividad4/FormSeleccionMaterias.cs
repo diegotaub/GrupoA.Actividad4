@@ -16,5 +16,19 @@ namespace GrupoA.Actividad4
         {
             InitializeComponent();
         }
+
+        private void btnAtrasSeleccionMaterias_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormDeclaracionJuradaNotificacion Form = new FormDeclaracionJuradaNotificacion();
+            Form.Show();
+        }
+
+        private void btnAceptarSeleccionMaterias_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormConfirmacionMaterias Form = new FormConfirmacionMaterias();
+            Form.Show();
+        }
     }
 }

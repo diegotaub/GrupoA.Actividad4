@@ -10,24 +10,24 @@ using System.Windows.Forms;
 
 namespace GrupoA.Actividad4
 {
-    public partial class FormDeclaracionJuradaNotificacion : Form
+    public partial class FormConfirmacionMaterias : Form
     {
-        public FormDeclaracionJuradaNotificacion()
+        public FormConfirmacionMaterias()
         {
             InitializeComponent();
         }
 
-        private void btnAtrasNotificacionDJ_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form1 Form = new Form1();
-            Form.Show();
-        }
-
-        private void btnContinuarNotificacionDJ_Click(object sender, EventArgs e)
+        private void btnAtrasConfirmacionMaterias_Click(object sender, EventArgs e)
         {
             this.Hide();
             FormSeleccionMaterias Form = new FormSeleccionMaterias();
+            Form.Show();
+        }
+
+        private void btnConfirmarConfirmacionMaterias_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormComprobanteInscripcion Form = new FormComprobanteInscripcion();
             Form.Show();
         }
     }

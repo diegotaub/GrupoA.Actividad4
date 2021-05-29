@@ -64,8 +64,8 @@ namespace GrupoA.Actividad4
             this.comboBox14 = new System.Windows.Forms.ComboBox();
             this.comboBox15 = new System.Windows.Forms.ComboBox();
             this.comboBox16 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAtrasSeleccionMaterias = new System.Windows.Forms.Button();
+            this.btnAceptarSeleccionMaterias = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -377,31 +377,33 @@ namespace GrupoA.Actividad4
             this.comboBox16.Size = new System.Drawing.Size(121, 21);
             this.comboBox16.TabIndex = 27;
             // 
-            // button1
+            // btnAtrasSeleccionMaterias
             // 
-            this.button1.Location = new System.Drawing.Point(325, 406);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "Atrás";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAtrasSeleccionMaterias.Location = new System.Drawing.Point(325, 406);
+            this.btnAtrasSeleccionMaterias.Name = "btnAtrasSeleccionMaterias";
+            this.btnAtrasSeleccionMaterias.Size = new System.Drawing.Size(75, 23);
+            this.btnAtrasSeleccionMaterias.TabIndex = 27;
+            this.btnAtrasSeleccionMaterias.Text = "Atrás";
+            this.btnAtrasSeleccionMaterias.UseVisualStyleBackColor = true;
+            this.btnAtrasSeleccionMaterias.Click += new System.EventHandler(this.btnAtrasSeleccionMaterias_Click);
             // 
-            // button2
+            // btnAceptarSeleccionMaterias
             // 
-            this.button2.Location = new System.Drawing.Point(460, 406);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 28;
-            this.button2.Text = "Aceptar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAceptarSeleccionMaterias.Location = new System.Drawing.Point(460, 406);
+            this.btnAceptarSeleccionMaterias.Name = "btnAceptarSeleccionMaterias";
+            this.btnAceptarSeleccionMaterias.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptarSeleccionMaterias.TabIndex = 28;
+            this.btnAceptarSeleccionMaterias.Text = "Aceptar";
+            this.btnAceptarSeleccionMaterias.UseVisualStyleBackColor = true;
+            this.btnAceptarSeleccionMaterias.Click += new System.EventHandler(this.btnAceptarSeleccionMaterias_Click);
             // 
             // FormSeleccionMaterias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAceptarSeleccionMaterias);
+            this.Controls.Add(this.btnAtrasSeleccionMaterias);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
@@ -475,7 +477,7 @@ namespace GrupoA.Actividad4
         private System.Windows.Forms.ComboBox comboBox15;
         private System.Windows.Forms.ComboBox comboBox14;
         private System.Windows.Forms.ComboBox comboBox13;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAtrasSeleccionMaterias;
+        private System.Windows.Forms.Button btnAceptarSeleccionMaterias;
     }
 }

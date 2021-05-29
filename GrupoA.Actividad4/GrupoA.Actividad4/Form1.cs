@@ -23,6 +23,7 @@ namespace GrupoA.Actividad4
 
             //Validar alumno regular
             //Validar que la fecha esté dentro del rango habilitado para inscripción
+            // si ya confirmé la declaración jurada, me lleva directamente a la notificación de la misma
 
             this.Hide();
             FormDeclaracionJurada Form = new FormDeclaracionJurada();
