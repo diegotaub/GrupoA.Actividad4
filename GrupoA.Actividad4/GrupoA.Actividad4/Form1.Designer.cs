@@ -38,12 +38,12 @@ namespace GrupoA.Actividad4
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lblRegistro = new System.Windows.Forms.Label();
+            this.lblCarrera = new System.Windows.Forms.Label();
+            this.lblMateriasAprobadas = new System.Windows.Forms.Label();
+            this.lblRanking = new System.Windows.Forms.Label();
             this.lblPromedio = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblRegistro = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -86,6 +86,8 @@ namespace GrupoA.Actividad4
             this.lbMateriasAprobadas.Name = "lbMateriasAprobadas";
             this.lbMateriasAprobadas.Size = new System.Drawing.Size(299, 251);
             this.lbMateriasAprobadas.TabIndex = 3;
+            this.lbMateriasAprobadas.Click += new System.EventHandler(this.lbMateriasAprobadas_SelectedIndexChanged);
+            this.lbMateriasAprobadas.SelectedIndexChanged += new System.EventHandler(this.lbMateriasAprobadas_SelectedIndexChanged);
             // 
             // lblBienvenido
             // 
@@ -132,9 +134,9 @@ namespace GrupoA.Actividad4
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.lblCarrera);
+            this.groupBox2.Controls.Add(this.lblMateriasAprobadas);
+            this.groupBox2.Controls.Add(this.lblRanking);
             this.groupBox2.Controls.Add(this.lblPromedio);
             this.groupBox2.Controls.Add(this.lblRegistro);
             this.groupBox2.Controls.Add(this.lblBienvenido);
@@ -145,25 +147,35 @@ namespace GrupoA.Actividad4
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Resumen";
             // 
-            // groupBox3
+            // lblCarrera
             // 
-            this.groupBox3.Controls.Add(this.lbMateriasAprobadas);
-            this.groupBox3.Location = new System.Drawing.Point(396, 96);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(327, 297);
-            this.groupBox3.TabIndex = 9;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Materias Aprobadas";
+            this.lblCarrera.AutoSize = true;
+            this.lblCarrera.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCarrera.Location = new System.Drawing.Point(7, 188);
+            this.lblCarrera.Name = "lblCarrera";
+            this.lblCarrera.Size = new System.Drawing.Size(312, 31);
+            this.lblCarrera.TabIndex = 9;
+            this.lblCarrera.Text = "Carrera: Lic en Sistemas";
             // 
-            // lblRegistro
+            // lblMateriasAprobadas
             // 
-            this.lblRegistro.AutoSize = true;
-            this.lblRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRegistro.Location = new System.Drawing.Point(13, 69);
-            this.lblRegistro.Name = "lblRegistro";
-            this.lblRegistro.Size = new System.Drawing.Size(131, 20);
-            this.lblRegistro.TabIndex = 5;
-            this.lblRegistro.Text = "Registro: 890061";
+            this.lblMateriasAprobadas.AutoSize = true;
+            this.lblMateriasAprobadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMateriasAprobadas.Location = new System.Drawing.Point(13, 244);
+            this.lblMateriasAprobadas.Name = "lblMateriasAprobadas";
+            this.lblMateriasAprobadas.Size = new System.Drawing.Size(160, 20);
+            this.lblMateriasAprobadas.TabIndex = 8;
+            this.lblMateriasAprobadas.Text = "24/34 Materias (70%)";
+            // 
+            // lblRanking
+            // 
+            this.lblRanking.AutoSize = true;
+            this.lblRanking.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRanking.Location = new System.Drawing.Point(13, 103);
+            this.lblRanking.Name = "lblRanking";
+            this.lblRanking.Size = new System.Drawing.Size(125, 20);
+            this.lblRanking.TabIndex = 7;
+            this.lblRanking.Text = "Ranking: 176.58";
             // 
             // lblPromedio
             // 
@@ -175,35 +187,25 @@ namespace GrupoA.Actividad4
             this.lblPromedio.TabIndex = 6;
             this.lblPromedio.Text = "Promedio: 7.3";
             // 
-            // label2
+            // lblRegistro
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 103);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 20);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Ranking: 176.58";
+            this.lblRegistro.AutoSize = true;
+            this.lblRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistro.Location = new System.Drawing.Point(13, 69);
+            this.lblRegistro.Name = "lblRegistro";
+            this.lblRegistro.Size = new System.Drawing.Size(131, 20);
+            this.lblRegistro.TabIndex = 5;
+            this.lblRegistro.Text = "Registro: 890061";
             // 
-            // label3
+            // groupBox3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 244);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(160, 20);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "24/34 Materias (70%)";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(7, 188);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(312, 31);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Carrera: Lic en Sistemas";
+            this.groupBox3.Controls.Add(this.lbMateriasAprobadas);
+            this.groupBox3.Location = new System.Drawing.Point(396, 96);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(327, 297);
+            this.groupBox3.TabIndex = 9;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Materias Aprobadas";
             // 
             // Form1
             // 
@@ -234,9 +236,9 @@ namespace GrupoA.Actividad4
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox lbMateriasAprobadas;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCarrera;
+        private System.Windows.Forms.Label lblMateriasAprobadas;
+        private System.Windows.Forms.Label lblRanking;
         private System.Windows.Forms.Label lblPromedio;
         private System.Windows.Forms.Label lblRegistro;
         private System.Windows.Forms.GroupBox groupBox3;

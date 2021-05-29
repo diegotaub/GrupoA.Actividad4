@@ -15,6 +15,25 @@ namespace GrupoA.Actividad4
         public Form1()
         {
             InitializeComponent();
+
+            Alumno A = new Alumno();
+            Carrera C = new Carrera(A.Carrera);
+            lblBienvenido.Text = $"Bienvenido, {A.Nombre}";
+            lblRegistro.Text = $"Registro: {A.Registro}";
+            lblRanking.Text = $"Ranking: {A.Ranking}";
+            lblPromedio.Text = $"Promedio: {A.Promedio}";
+            lblCarrera.Text = $"Carrera: {C.NombreCarrera}";
+            lblMateriasAprobadas.Text = $"Materias Aprobadas: {A.MateriasAprobadas.Count}/{C.CantidadMaterias} ({Math.Round(Convert.ToDouble(A.MateriasAprobadas.Count) / Convert.ToDouble(C.CantidadMaterias)*100, 2)}%)";
+            foreach (string materia in A.MateriasAprobadas)
+            {
+                foreach(KeyValuePair<string, string> claveValor in C.DiccionarioDeMaterias)
+                {
+                    if(materia == claveValor.Key)
+                    {
+                        lbMateriasAprobadas.Items.Add(claveValor.Value);
+                    }
+                }
+            }
         }
 
 
@@ -48,6 +67,12 @@ namespace GrupoA.Actividad4
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lbMateriasAprobadas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            
         }
     }
 }
