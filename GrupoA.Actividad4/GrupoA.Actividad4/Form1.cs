@@ -15,7 +15,8 @@ namespace GrupoA.Actividad4
         public Form1()
         {
             InitializeComponent();
-
+            
+            
             Alumno A = new Alumno();
             Carrera C = new Carrera(A.Carrera);
             lblBienvenido.Text = $"Bienvenido, {A.Nombre}";
@@ -38,15 +39,41 @@ namespace GrupoA.Actividad4
 
 
         private void btnInscripciones_Click(object sender, EventArgs e)
+
         {
 
-            //Validar alumno regular
-            //Validar que la fecha esté dentro del rango habilitado para inscripción
-            // si ya confirmé la declaración jurada, me lleva directamente a la notificación de la misma
+            Alumno A = new Alumno();
+            string error = "";
 
-            this.Hide();
-            FormDeclaracionJurada Form = new FormDeclaracionJurada();
-            Form.Show();
+            // si ya confirmé la declaración jurada, me lleva directamente a la notificación de la misma
+            Inscripcion I = new Inscripcion();
+            if (I.VerificarInscripcion() && A.EsRegular)
+            {
+                this.Hide();
+                FormDeclaracionJurada Form = new FormDeclaracionJurada();
+                Form.Show();
+            }
+            else
+            {
+
+                if (!A.EsRegular)
+                {
+                    error += $"Debés ser un alumno regular para ingresar a la inscripción\n";
+
+                }
+                if (!I.VerificarInscripcion())
+                {
+                    error += $"La inscripción no está disponible en este momento\n Fecha de inicio: {I.FechaInicio:d}\n Fecha de fin: {I.FechaFin:d}\n";
+
+                }
+
+                MessageBox.Show(error, "Error");
+
+            }
+
+            
+            
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
