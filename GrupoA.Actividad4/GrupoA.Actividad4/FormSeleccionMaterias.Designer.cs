@@ -51,23 +51,24 @@ namespace GrupoA.Actividad4
             this.cbMateria3 = new System.Windows.Forms.ComboBox();
             this.cbAlternativa3 = new System.Windows.Forms.ComboBox();
             this.cbPrimera3 = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.cbPrimera4 = new System.Windows.Forms.ComboBox();
-            this.cbAlternativa4 = new System.Windows.Forms.ComboBox();
-            this.cbMateria4 = new System.Windows.Forms.ComboBox();
             this.btnAtrasSeleccionMaterias = new System.Windows.Forms.Button();
             this.btnAceptarSeleccionMaterias = new System.Windows.Forms.Button();
+            this.btnBorrarSeleccion = new System.Windows.Forms.Button();
             this.txtCarrera1 = new System.Windows.Forms.TextBox();
             this.txtCarrera2 = new System.Windows.Forms.TextBox();
             this.txtCarrera3 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cbPrimera4 = new System.Windows.Forms.ComboBox();
             this.txtCarrera4 = new System.Windows.Forms.TextBox();
+            this.cbAlternativa4 = new System.Windows.Forms.ComboBox();
+            this.cbMateria4 = new System.Windows.Forms.ComboBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -82,14 +83,17 @@ namespace GrupoA.Actividad4
             // 
             // cbPrimera1
             // 
+            this.cbPrimera1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPrimera1.FormattingEnabled = true;
             this.cbPrimera1.Location = new System.Drawing.Point(430, 121);
             this.cbPrimera1.Name = "cbPrimera1";
             this.cbPrimera1.Size = new System.Drawing.Size(121, 21);
             this.cbPrimera1.TabIndex = 2;
+            this.cbPrimera1.SelectedIndexChanged += new System.EventHandler(this.cbPrimera1_SelectedIndexChanged);
             // 
             // cbAlternativa1
             // 
+            this.cbAlternativa1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAlternativa1.FormattingEnabled = true;
             this.cbAlternativa1.Location = new System.Drawing.Point(577, 121);
             this.cbAlternativa1.Name = "cbAlternativa1";
@@ -98,6 +102,7 @@ namespace GrupoA.Actividad4
             // 
             // cbMateria1
             // 
+            this.cbMateria1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMateria1.FormattingEnabled = true;
             this.cbMateria1.Location = new System.Drawing.Point(290, 121);
             this.cbMateria1.Name = "cbMateria1";
@@ -179,6 +184,7 @@ namespace GrupoA.Actividad4
             // 
             // cbMateria2
             // 
+            this.cbMateria2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMateria2.FormattingEnabled = true;
             this.cbMateria2.Location = new System.Drawing.Point(290, 192);
             this.cbMateria2.Name = "cbMateria2";
@@ -188,6 +194,7 @@ namespace GrupoA.Actividad4
             // 
             // cbAlternativa2
             // 
+            this.cbAlternativa2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAlternativa2.FormattingEnabled = true;
             this.cbAlternativa2.Location = new System.Drawing.Point(577, 192);
             this.cbAlternativa2.Name = "cbAlternativa2";
@@ -196,11 +203,13 @@ namespace GrupoA.Actividad4
             // 
             // cbPrimera2
             // 
+            this.cbPrimera2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPrimera2.FormattingEnabled = true;
             this.cbPrimera2.Location = new System.Drawing.Point(430, 192);
             this.cbPrimera2.Name = "cbPrimera2";
             this.cbPrimera2.Size = new System.Drawing.Size(121, 21);
             this.cbPrimera2.TabIndex = 10;
+            this.cbPrimera2.SelectedIndexChanged += new System.EventHandler(this.cbPrimera2_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -240,6 +249,7 @@ namespace GrupoA.Actividad4
             // 
             // cbMateria3
             // 
+            this.cbMateria3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMateria3.FormattingEnabled = true;
             this.cbMateria3.Location = new System.Drawing.Point(290, 271);
             this.cbMateria3.Name = "cbMateria3";
@@ -249,6 +259,7 @@ namespace GrupoA.Actividad4
             // 
             // cbAlternativa3
             // 
+            this.cbAlternativa3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAlternativa3.FormattingEnabled = true;
             this.cbAlternativa3.Location = new System.Drawing.Point(577, 271);
             this.cbAlternativa3.Name = "cbAlternativa3";
@@ -257,105 +268,17 @@ namespace GrupoA.Actividad4
             // 
             // cbPrimera3
             // 
+            this.cbPrimera3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPrimera3.FormattingEnabled = true;
             this.cbPrimera3.Location = new System.Drawing.Point(430, 271);
             this.cbPrimera3.Name = "cbPrimera3";
             this.cbPrimera3.Size = new System.Drawing.Size(121, 21);
             this.cbPrimera3.TabIndex = 18;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtCarrera3);
-            this.groupBox1.Controls.Add(this.txtCarrera2);
-            this.groupBox1.Controls.Add(this.txtCarrera1);
-            this.groupBox1.Location = new System.Drawing.Point(122, 74);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(604, 233);
-            this.groupBox1.TabIndex = 25;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Presencial";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.txtCarrera4);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.cbPrimera4);
-            this.groupBox2.Controls.Add(this.cbAlternativa4);
-            this.groupBox2.Controls.Add(this.cbMateria4);
-            this.groupBox2.Location = new System.Drawing.Point(122, 313);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(604, 73);
-            this.groupBox2.TabIndex = 26;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Virtual";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(462, 16);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(94, 13);
-            this.label14.TabIndex = 34;
-            this.label14.Text = "Opción Alternativa";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(25, 16);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(41, 13);
-            this.label17.TabIndex = 31;
-            this.label17.Text = "Carrera";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(315, 16);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(79, 13);
-            this.label15.TabIndex = 33;
-            this.label15.Text = "Primera Opción";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(175, 16);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(42, 13);
-            this.label16.TabIndex = 32;
-            this.label16.Text = "Materia";
-            // 
-            // cbPrimera4
-            // 
-            this.cbPrimera4.FormattingEnabled = true;
-            this.cbPrimera4.Location = new System.Drawing.Point(318, 43);
-            this.cbPrimera4.Name = "cbPrimera4";
-            this.cbPrimera4.Size = new System.Drawing.Size(121, 21);
-            this.cbPrimera4.TabIndex = 28;
-            // 
-            // cbAlternativa4
-            // 
-            this.cbAlternativa4.FormattingEnabled = true;
-            this.cbAlternativa4.Location = new System.Drawing.Point(465, 43);
-            this.cbAlternativa4.Name = "cbAlternativa4";
-            this.cbAlternativa4.Size = new System.Drawing.Size(121, 21);
-            this.cbAlternativa4.TabIndex = 29;
-            // 
-            // cbMateria4
-            // 
-            this.cbMateria4.FormattingEnabled = true;
-            this.cbMateria4.Location = new System.Drawing.Point(178, 43);
-            this.cbMateria4.Name = "cbMateria4";
-            this.cbMateria4.Size = new System.Drawing.Size(121, 21);
-            this.cbMateria4.TabIndex = 30;
-            this.cbMateria4.SelectedIndexChanged += new System.EventHandler(this.cbMateria4_SelectedIndexChanged);
+            this.cbPrimera3.SelectedIndexChanged += new System.EventHandler(this.cbPrimera3_SelectedIndexChanged);
             // 
             // btnAtrasSeleccionMaterias
             // 
-            this.btnAtrasSeleccionMaterias.Location = new System.Drawing.Point(325, 406);
+            this.btnAtrasSeleccionMaterias.Location = new System.Drawing.Point(243, 406);
             this.btnAtrasSeleccionMaterias.Name = "btnAtrasSeleccionMaterias";
             this.btnAtrasSeleccionMaterias.Size = new System.Drawing.Size(75, 23);
             this.btnAtrasSeleccionMaterias.TabIndex = 27;
@@ -365,13 +288,23 @@ namespace GrupoA.Actividad4
             // 
             // btnAceptarSeleccionMaterias
             // 
-            this.btnAceptarSeleccionMaterias.Location = new System.Drawing.Point(460, 406);
+            this.btnAceptarSeleccionMaterias.Location = new System.Drawing.Point(486, 406);
             this.btnAceptarSeleccionMaterias.Name = "btnAceptarSeleccionMaterias";
             this.btnAceptarSeleccionMaterias.Size = new System.Drawing.Size(75, 23);
             this.btnAceptarSeleccionMaterias.TabIndex = 28;
             this.btnAceptarSeleccionMaterias.Text = "Aceptar";
             this.btnAceptarSeleccionMaterias.UseVisualStyleBackColor = true;
             this.btnAceptarSeleccionMaterias.Click += new System.EventHandler(this.btnAceptarSeleccionMaterias_Click);
+            // 
+            // btnBorrarSeleccion
+            // 
+            this.btnBorrarSeleccion.Location = new System.Drawing.Point(352, 406);
+            this.btnBorrarSeleccion.Name = "btnBorrarSeleccion";
+            this.btnBorrarSeleccion.Size = new System.Drawing.Size(97, 23);
+            this.btnBorrarSeleccion.TabIndex = 38;
+            this.btnBorrarSeleccion.Text = "Borrar Selección";
+            this.btnBorrarSeleccion.UseVisualStyleBackColor = true;
+            this.btnBorrarSeleccion.Click += new System.EventHandler(this.btnBorrarSeleccion_Click);
             // 
             // txtCarrera1
             // 
@@ -397,25 +330,119 @@ namespace GrupoA.Actividad4
             this.txtCarrera3.Size = new System.Drawing.Size(119, 20);
             this.txtCarrera3.TabIndex = 37;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtCarrera3);
+            this.groupBox1.Controls.Add(this.txtCarrera2);
+            this.groupBox1.Controls.Add(this.txtCarrera1);
+            this.groupBox1.Location = new System.Drawing.Point(122, 74);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(604, 233);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Presencial";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(297, 323);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(42, 13);
+            this.label16.TabIndex = 32;
+            this.label16.Text = "Materia";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(437, 323);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(79, 13);
+            this.label15.TabIndex = 33;
+            this.label15.Text = "Primera Opción";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(147, 323);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(41, 13);
+            this.label17.TabIndex = 31;
+            this.label17.Text = "Carrera";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(584, 323);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(94, 13);
+            this.label14.TabIndex = 34;
+            this.label14.Text = "Opción Alternativa";
+            // 
+            // cbPrimera4
+            // 
+            this.cbPrimera4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPrimera4.FormattingEnabled = true;
+            this.cbPrimera4.Location = new System.Drawing.Point(430, 349);
+            this.cbPrimera4.Name = "cbPrimera4";
+            this.cbPrimera4.Size = new System.Drawing.Size(121, 21);
+            this.cbPrimera4.TabIndex = 39;
+            this.cbPrimera4.SelectedIndexChanged += new System.EventHandler(this.cbPrimera4_SelectedIndexChanged);
+            // 
             // txtCarrera4
             // 
-            this.txtCarrera4.Location = new System.Drawing.Point(18, 43);
+            this.txtCarrera4.Location = new System.Drawing.Point(140, 350);
             this.txtCarrera4.Name = "txtCarrera4";
             this.txtCarrera4.ReadOnly = true;
             this.txtCarrera4.Size = new System.Drawing.Size(119, 20);
             this.txtCarrera4.TabIndex = 38;
+            // 
+            // cbAlternativa4
+            // 
+            this.cbAlternativa4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbAlternativa4.FormattingEnabled = true;
+            this.cbAlternativa4.Location = new System.Drawing.Point(577, 349);
+            this.cbAlternativa4.Name = "cbAlternativa4";
+            this.cbAlternativa4.Size = new System.Drawing.Size(121, 21);
+            this.cbAlternativa4.TabIndex = 40;
+            // 
+            // cbMateria4
+            // 
+            this.cbMateria4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMateria4.FormattingEnabled = true;
+            this.cbMateria4.Location = new System.Drawing.Point(290, 349);
+            this.cbMateria4.Name = "cbMateria4";
+            this.cbMateria4.Size = new System.Drawing.Size(121, 21);
+            this.cbMateria4.TabIndex = 41;
+            this.cbMateria4.SelectedIndexChanged += new System.EventHandler(this.cbMateria4_SelectedIndexChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Location = new System.Drawing.Point(122, 305);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(604, 87);
+            this.groupBox2.TabIndex = 42;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Virtual";
             // 
             // FormSeleccionMaterias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cbMateria4);
+            this.Controls.Add(this.btnBorrarSeleccion);
+            this.Controls.Add(this.cbAlternativa4);
             this.Controls.Add(this.btnAceptarSeleccionMaterias);
+            this.Controls.Add(this.txtCarrera4);
+            this.Controls.Add(this.cbPrimera4);
             this.Controls.Add(this.btnAtrasSeleccionMaterias);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label10);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.label11);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.label12);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cbMateria3);
             this.Controls.Add(this.cbAlternativa3);
@@ -436,12 +463,11 @@ namespace GrupoA.Actividad4
             this.Controls.Add(this.cbPrimera1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
             this.Name = "FormSeleccionMaterias";
             this.Text = "FormSeleccionMaterias";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -470,21 +496,23 @@ namespace GrupoA.Actividad4
         private System.Windows.Forms.ComboBox cbMateria3;
         private System.Windows.Forms.ComboBox cbAlternativa3;
         private System.Windows.Forms.ComboBox cbPrimera3;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox cbPrimera4;
-        private System.Windows.Forms.ComboBox cbAlternativa4;
-        private System.Windows.Forms.ComboBox cbMateria4;
         private System.Windows.Forms.Button btnAtrasSeleccionMaterias;
         private System.Windows.Forms.Button btnAceptarSeleccionMaterias;
-        private System.Windows.Forms.TextBox txtCarrera3;
-        private System.Windows.Forms.TextBox txtCarrera2;
-        private System.Windows.Forms.TextBox txtCarrera1;
-        private System.Windows.Forms.TextBox txtCarrera4;
         private System.Windows.Forms.ComboBox cbMateria2;
+        private System.Windows.Forms.Button btnBorrarSeleccion;
+        private System.Windows.Forms.TextBox txtCarrera1;
+        private System.Windows.Forms.TextBox txtCarrera2;
+        private System.Windows.Forms.TextBox txtCarrera3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox cbPrimera4;
+        private System.Windows.Forms.TextBox txtCarrera4;
+        private System.Windows.Forms.ComboBox cbAlternativa4;
+        private System.Windows.Forms.ComboBox cbMateria4;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

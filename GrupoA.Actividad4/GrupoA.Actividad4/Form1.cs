@@ -18,6 +18,7 @@ namespace GrupoA.Actividad4
             
             
             Alumno A = new Alumno();
+            
             Carrera C = new Carrera(A.Carrera);
             lblBienvenido.Text = $"Bienvenido, {A.Nombre}";
             lblRegistro.Text = $"Registro: {A.Registro}";
@@ -50,7 +51,7 @@ namespace GrupoA.Actividad4
 
 
 
-            if (I.VerificarInscripcion() && A.EsRegular && A.AproboCBC)
+            if (I.VerificarInscripcion() && A.EsRegular && A.AproboCBC && !A.ConfirmoInscripcion)
             {
 
                 if (A.ConfirmoDJ)
@@ -91,6 +92,11 @@ namespace GrupoA.Actividad4
                 if (!A.AproboCBC)
                 {
                     error += $"Debés tener aprobado el CBC para poder inciar la inscripción a las materias del segundo tramo\n";
+                }
+                if (A.ConfirmoInscripcion)
+                {
+                    error += $"El alumno ya realizó la solicitud de inscripción\n";
+
                 }
 
                 MessageBox.Show(error, "Error");

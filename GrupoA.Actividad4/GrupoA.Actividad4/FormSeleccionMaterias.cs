@@ -11,7 +11,9 @@ using System.Windows.Forms;
 namespace GrupoA.Actividad4
 {
     public partial class FormSeleccionMaterias : Form
-    {
+    {        
+     
+
         public FormSeleccionMaterias()
         {
             InitializeComponent();
@@ -22,6 +24,16 @@ namespace GrupoA.Actividad4
             txtCarrera2.Text = C.NombreCarrera;
             txtCarrera3.Text = C.NombreCarrera;
             txtCarrera4.Text = C.NombreCarrera;
+            cbPrimera1.Enabled = false;
+            cbPrimera2.Enabled = false;
+            cbPrimera3.Enabled = false;
+            cbPrimera4.Enabled = false;  
+            cbAlternativa1.Enabled = false;
+            cbAlternativa2.Enabled = false;
+            cbAlternativa3.Enabled = false;
+            cbAlternativa4.Enabled = false;
+            btnAceptarSeleccionMaterias.Enabled = false;
+            
 
             foreach (KeyValuePair<string, string> materias in C.DiccionarioDeMaterias)
             {
@@ -90,22 +102,51 @@ namespace GrupoA.Actividad4
         private void btnAceptarSeleccionMaterias_Click(object sender, EventArgs e)
         {
 
+            string error = "";
+
+
+
+            if((cbPrimera1.SelectedIndex == -1 && cbAlternativa1.SelectedIndex != -1) ||
+                (cbPrimera2.SelectedIndex == -1 && cbAlternativa2.SelectedIndex != -1) ||
+                (cbPrimera3.SelectedIndex == -1 && cbAlternativa3.SelectedIndex != -1) ||
+                (cbPrimera4.SelectedIndex == -1 && cbAlternativa4.SelectedIndex != -1))
+            {
+                error += "No puede elegir un curso alternativo sin elegir la primera opción\n";
+            }
+
             if(
-                (cbMateria1.Text != "" && cbMateria1.Text == cbMateria2.Text) ||
-                (cbMateria1.Text != "" && cbMateria1.Text == cbMateria3.Text) ||
-                (cbMateria1.Text != "" && cbMateria1.Text == cbMateria4.Text) ||
-                (cbMateria2.Text != "" && cbMateria1.Text == cbMateria3.Text) ||
-                (cbMateria2.Text != "" && cbMateria1.Text == cbMateria4.Text) ||
-                (cbMateria3.Text != "" && cbMateria1.Text == cbMateria4.Text) 
+                (cbMateria1.SelectedIndex != -1 && cbMateria1.Text == cbMateria2.Text) ||
+                (cbMateria1.SelectedIndex != -1 && cbMateria1.Text == cbMateria3.Text) ||
+                (cbMateria1.SelectedIndex != -1 && cbMateria1.Text == cbMateria4.Text) ||
+                (cbMateria2.SelectedIndex != -1 && cbMateria2.Text == cbMateria3.Text) ||
+                (cbMateria2.SelectedIndex != -1 && cbMateria2.Text == cbMateria4.Text) ||
+                (cbMateria3.SelectedIndex != -1 && cbMateria3.Text == cbMateria4.Text) 
                 )
             {
-                MessageBox.Show("No puede inscribirse más de una vez en la misma materia", "Error");
+                error += "No puede inscribirse más de una vez en la misma materia\n";
             }
-            else
+
+            if((cbMateria1.SelectedIndex != -1 && cbPrimera1.SelectedIndex == -1 && cbAlternativa1.SelectedIndex == -1)||
+                (cbMateria2.SelectedIndex != -1 && cbPrimera2.SelectedIndex == -1 && cbAlternativa2.SelectedIndex == -1)||
+                (cbMateria3.SelectedIndex != -1 && cbPrimera3.SelectedIndex == -1 && cbAlternativa3.SelectedIndex == -1) ||
+                (cbMateria4.SelectedIndex != -1 && cbPrimera4.SelectedIndex == -1 && cbAlternativa4.SelectedIndex == -1))
             {
+                error += "Debe seleccionar al menos un curso para las materias seleccionadas\n";
+            }
+
+            if (error == "")
+            {
+
+               
+
+
                 this.Hide();
                 FormConfirmacionMaterias Form = new FormConfirmacionMaterias();
                 Form.Show();
+            }
+            else
+            {
+                MessageBox.Show(error, "Error");
             }
             
         }
@@ -116,6 +157,8 @@ namespace GrupoA.Actividad4
             cbAlternativa1.Items.Clear();
             cbPrimera1.Text = "";
             cbAlternativa1.Text = "";
+            cbPrimera1.Enabled = true;
+            cbAlternativa1.Enabled = true;
             Alumno A = new Alumno();
             Carrera C = new Carrera(A.Carrera);
             string CodigoMateria = "";
@@ -142,6 +185,8 @@ namespace GrupoA.Actividad4
             cbAlternativa2.Items.Clear();
             cbPrimera2.Text = "";
             cbAlternativa2.Text = "";
+            cbPrimera2.Enabled = true;
+            cbAlternativa2.Enabled = true;
             Alumno A = new Alumno();
             Carrera C = new Carrera(A.Carrera);
             string CodigoMateria = "";
@@ -167,6 +212,8 @@ namespace GrupoA.Actividad4
             cbAlternativa3.Items.Clear();
             cbPrimera3.Text = "";
             cbAlternativa3.Text = "";
+            cbPrimera3.Enabled = true;
+            cbAlternativa3.Enabled = true;
             Alumno A = new Alumno();
             Carrera C = new Carrera(A.Carrera);
             string CodigoMateria = "";
@@ -192,22 +239,87 @@ namespace GrupoA.Actividad4
             cbAlternativa4.Items.Clear();
             cbPrimera4.Text = "";
             cbAlternativa4.Text = "";
+            cbPrimera4.Enabled = true;
+            cbAlternativa4.Enabled = true;
             Alumno A = new Alumno();
             Carrera C = new Carrera(A.Carrera);
             string CodigoMateria = "";
 
-            foreach (KeyValuePair<string, string> materia in C.DiccionarioDeMaterias)
+            if(cbMateria4.Text != "")
             {
-                if (cbMateria4.Text == materia.Value)
+                foreach (KeyValuePair<string, string> materia in C.DiccionarioDeMaterias)
                 {
-                    CodigoMateria = materia.Key;
+                    if (cbMateria4.Text == materia.Value)
+                    {
+                        CodigoMateria = materia.Key;
+                    }
+                }
+
+                foreach (Curso curso in Curso.CargarCursos(CodigoMateria, "V"))
+                {
+                    cbPrimera4.Items.Add(curso.CodigoCurso);
+                    cbAlternativa4.Items.Add(curso.CodigoCurso);
                 }
             }
+            
+        }
 
-            foreach (Curso curso in Curso.CargarCursos(CodigoMateria, "V"))
+        private void btnBorrarSeleccion_Click(object sender, EventArgs e)
+        {
+            cbMateria1.SelectedIndex = -1;
+            cbMateria2.SelectedIndex = -1;
+            cbMateria3.SelectedIndex = -1;
+            cbMateria4.SelectedIndex = -1;
+            cbPrimera1.SelectedIndex = -1;
+            cbPrimera2.SelectedIndex = -1;
+            cbPrimera3.SelectedIndex = -1;
+            cbPrimera4.SelectedIndex = -1;
+            cbAlternativa1.SelectedIndex = -1;
+            cbAlternativa2.SelectedIndex = -1;
+            cbAlternativa3.SelectedIndex = -1;
+            cbAlternativa4.SelectedIndex = -1;
+
+            cbPrimera1.Enabled = false;
+            cbPrimera2.Enabled = false;
+            cbPrimera3.Enabled = false;
+            cbPrimera4.Enabled = false;
+            cbAlternativa1.Enabled = false;
+            cbAlternativa2.Enabled = false;
+            cbAlternativa3.Enabled = false;
+            cbAlternativa4.Enabled = false;
+            btnAceptarSeleccionMaterias.Enabled = false;
+
+        }
+
+        private void cbPrimera1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbPrimera1.SelectedIndex != -1)
             {
-                cbPrimera4.Items.Add(curso.CodigoCurso);
-                cbAlternativa4.Items.Add(curso.CodigoCurso);
+                btnAceptarSeleccionMaterias.Enabled = true;
+            }
+        }
+
+        private void cbPrimera2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbPrimera2.SelectedIndex != -1)
+            {
+                btnAceptarSeleccionMaterias.Enabled = true;
+            }
+        }
+
+        private void cbPrimera3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbPrimera3.SelectedIndex != -1)
+            {
+                btnAceptarSeleccionMaterias.Enabled = true;
+            }
+        }
+
+        private void cbPrimera4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbPrimera4.SelectedIndex != -1)
+            {
+                btnAceptarSeleccionMaterias.Enabled = true;
             }
         }
     }

@@ -30,9 +30,12 @@ namespace GrupoA.Actividad4
                 lbNotificacionDJ.Items.Add(materia + " - Aprobada");
             }
 
+            Carrera C = new Carrera(A.Carrera);
+
             foreach (string materia in A.MateriasRegularizadas)
             {
-                lbNotificacionDJ.Items.Add(materia + " - Regularizada");
+
+                lbNotificacionDJ.Items.Add(C.DiccionarioDeMaterias[materia] + " - Regularizada");
             }
 
             if(A.MateriasAprobadasDJ.Count == 0 && A.MateriasRegularizadas.Count == 0)

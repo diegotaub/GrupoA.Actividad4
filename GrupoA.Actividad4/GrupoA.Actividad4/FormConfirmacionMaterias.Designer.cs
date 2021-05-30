@@ -30,28 +30,21 @@ namespace GrupoA.Actividad4
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.btnAtrasConfirmacionMaterias = new System.Windows.Forms.Button();
             this.btnConfirmarConfirmacionMaterias = new System.Windows.Forms.Button();
+            this.txtConfirmacionMaterias = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(250, 36);
+            this.label1.Location = new System.Drawing.Point(143, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(303, 31);
+            this.label1.Size = new System.Drawing.Size(553, 62);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Sus selecciones fueron:";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(256, 103);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(297, 173);
-            this.listBox1.TabIndex = 1;
+            this.label1.Text = "Por favor, revise sus materias seleccionadas\r\nantes de confirmar la solicitud de " +
+    "inscripción\r\n";
             // 
             // btnAtrasConfirmacionMaterias
             // 
@@ -73,14 +66,23 @@ namespace GrupoA.Actividad4
             this.btnConfirmarConfirmacionMaterias.UseVisualStyleBackColor = true;
             this.btnConfirmarConfirmacionMaterias.Click += new System.EventHandler(this.btnConfirmarConfirmacionMaterias_Click);
             // 
+            // txtConfirmacionMaterias
+            // 
+            this.txtConfirmacionMaterias.Location = new System.Drawing.Point(201, 97);
+            this.txtConfirmacionMaterias.Multiline = true;
+            this.txtConfirmacionMaterias.Name = "txtConfirmacionMaterias";
+            this.txtConfirmacionMaterias.ReadOnly = true;
+            this.txtConfirmacionMaterias.Size = new System.Drawing.Size(422, 186);
+            this.txtConfirmacionMaterias.TabIndex = 4;
+            // 
             // FormConfirmacionMaterias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 368);
+            this.Controls.Add(this.txtConfirmacionMaterias);
             this.Controls.Add(this.btnConfirmarConfirmacionMaterias);
             this.Controls.Add(this.btnAtrasConfirmacionMaterias);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label1);
             this.Name = "FormConfirmacionMaterias";
             this.Text = "FormConfirmacionMaterias";
@@ -92,8 +94,8 @@ namespace GrupoA.Actividad4
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btnAtrasConfirmacionMaterias;
         private System.Windows.Forms.Button btnConfirmarConfirmacionMaterias;
+        private System.Windows.Forms.TextBox txtConfirmacionMaterias;
     }
 }

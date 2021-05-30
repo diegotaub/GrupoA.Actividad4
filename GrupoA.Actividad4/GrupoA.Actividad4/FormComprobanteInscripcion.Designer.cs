@@ -30,9 +30,9 @@ namespace GrupoA.Actividad4
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.lblCodigoInscripcion = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.txtComprobanteInscripcion = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -44,14 +44,6 @@ namespace GrupoA.Actividad4
             this.label1.Size = new System.Drawing.Size(702, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Su solicitud de inscripción fue recibida satisfactoriamente";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(222, 131);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(371, 173);
-            this.listBox1.TabIndex = 1;
             // 
             // lblCodigoInscripcion
             // 
@@ -73,14 +65,23 @@ namespace GrupoA.Actividad4
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // txtComprobanteInscripcion
+            // 
+            this.txtComprobanteInscripcion.Location = new System.Drawing.Point(169, 114);
+            this.txtComprobanteInscripcion.Multiline = true;
+            this.txtComprobanteInscripcion.Name = "txtComprobanteInscripcion";
+            this.txtComprobanteInscripcion.ReadOnly = true;
+            this.txtComprobanteInscripcion.Size = new System.Drawing.Size(490, 186);
+            this.txtComprobanteInscripcion.TabIndex = 4;
+            // 
             // FormComprobanteInscripcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtComprobanteInscripcion);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblCodigoInscripcion);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label1);
             this.Name = "FormComprobanteInscripcion";
             this.Text = "FormComprobanteInscripcion";
@@ -92,8 +93,8 @@ namespace GrupoA.Actividad4
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label lblCodigoInscripcion;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.TextBox txtComprobanteInscripcion;
     }
 }
