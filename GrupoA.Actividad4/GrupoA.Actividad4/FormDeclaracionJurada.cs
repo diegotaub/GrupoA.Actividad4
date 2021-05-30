@@ -22,38 +22,23 @@ namespace GrupoA.Actividad4
 
 
 
-            List<string> MateriasAprobadasCuatriAnterior = new List<string>();
-            foreach (string materia in File.ReadAllLines($@"{Environment.CurrentDirectory}\materias_aprobadas.txt").Skip(1))
-            {
-                
+            
 
-                if (A.Registro == long.Parse(materia.Split('|')[0]))
-                {
-                    string cuatrimestre = materia.Split('|')[3];
-                    if((cuatrimestre.EndsWith("1") && int.Parse(cuatrimestre) == I.Cuatrimestre - 1) || 
-                        (cuatrimestre.EndsWith("2")) && I.Cuatrimestre.ToString().EndsWith("1") && (int.Parse(cuatrimestre.Substring(0, 4)) 
-                        == int.Parse(I.Cuatrimestre.ToString().Substring(0, 4)) - 1))
-                    {
-                        MateriasAprobadasCuatriAnterior.Add(materia.Split('|')[1]);
-                    }
-                }
-            }
-
-            switch (MateriasAprobadasCuatriAnterior.Count())
+            switch (A.MateriasCursadasCuatriAnterior.Count())
             {
                 case 0:
                     break;
                 case 1:
                     lblMateriaDJ1.Visible = true;
-                    lblMateriaDJ1.Text = C.DiccionarioDeMaterias[MateriasAprobadasCuatriAnterior[0]];
+                    lblMateriaDJ1.Text = C.DiccionarioDeMaterias[A.MateriasCursadasCuatriAnterior[0]];
                     chMateriaDJ1.Visible = true;
                     chMateriaDJ2.Visible = true;
                     break;
                 case 2:
                     lblMateriaDJ1.Visible = true;
-                    lblMateriaDJ1.Text = C.DiccionarioDeMaterias[MateriasAprobadasCuatriAnterior[0]];
+                    lblMateriaDJ1.Text = C.DiccionarioDeMaterias[A.MateriasCursadasCuatriAnterior[0]];
                     lblMateriaDJ2.Visible = true;
-                    lblMateriaDJ2.Text = C.DiccionarioDeMaterias[MateriasAprobadasCuatriAnterior[1]];
+                    lblMateriaDJ2.Text = C.DiccionarioDeMaterias[A.MateriasCursadasCuatriAnterior[1]];
                     chMateriaDJ1.Visible = true;
                     chMateriaDJ2.Visible = true;
                     chMateriaDJ3.Visible = true;
@@ -62,11 +47,11 @@ namespace GrupoA.Actividad4
                     break;
                 case 3:
                     lblMateriaDJ1.Visible = true;
-                    lblMateriaDJ1.Text = C.DiccionarioDeMaterias[MateriasAprobadasCuatriAnterior[0]];
+                    lblMateriaDJ1.Text = C.DiccionarioDeMaterias[A.MateriasCursadasCuatriAnterior[0]];
                     lblMateriaDJ2.Visible = true;
-                    lblMateriaDJ2.Text = C.DiccionarioDeMaterias[MateriasAprobadasCuatriAnterior[1]];
+                    lblMateriaDJ2.Text = C.DiccionarioDeMaterias[A.MateriasCursadasCuatriAnterior[1]];
                     lblMateriaDJ3.Visible = true;
-                    lblMateriaDJ3.Text = C.DiccionarioDeMaterias[MateriasAprobadasCuatriAnterior[2]];
+                    lblMateriaDJ3.Text = C.DiccionarioDeMaterias[A.MateriasCursadasCuatriAnterior[2]];
                     chMateriaDJ1.Visible = true;
                     chMateriaDJ2.Visible = true;
                     chMateriaDJ3.Visible = true;
@@ -77,13 +62,13 @@ namespace GrupoA.Actividad4
                     break;
                 case 4:
                     lblMateriaDJ1.Visible = true;
-                    lblMateriaDJ1.Text = C.DiccionarioDeMaterias[MateriasAprobadasCuatriAnterior[0]];
+                    lblMateriaDJ1.Text = C.DiccionarioDeMaterias[A.MateriasCursadasCuatriAnterior[0]];
                     lblMateriaDJ2.Visible = true;
-                    lblMateriaDJ2.Text = C.DiccionarioDeMaterias[MateriasAprobadasCuatriAnterior[1]];
+                    lblMateriaDJ2.Text = C.DiccionarioDeMaterias[A.MateriasCursadasCuatriAnterior[1]];
                     lblMateriaDJ3.Visible = true;
-                    lblMateriaDJ3.Text = C.DiccionarioDeMaterias[MateriasAprobadasCuatriAnterior[2]];
+                    lblMateriaDJ3.Text = C.DiccionarioDeMaterias[A.MateriasCursadasCuatriAnterior[2]];
                     lblMateriaDJ4.Visible = true;
-                    lblMateriaDJ4.Text = C.DiccionarioDeMaterias[MateriasAprobadasCuatriAnterior[3]];
+                    lblMateriaDJ4.Text = C.DiccionarioDeMaterias[A.MateriasCursadasCuatriAnterior[3]];
                     chMateriaDJ1.Visible = true;
                     chMateriaDJ2.Visible = true;
                     chMateriaDJ3.Visible = true;
@@ -107,6 +92,69 @@ namespace GrupoA.Actividad4
 
         private void btnConfirmarDJ_Click(object sender, EventArgs e)
         {
+            
+            Alumno A = new Alumno();
+            Carrera C = new Carrera(A.Carrera);
+            if (ch4ultimasDJ.Checked)
+            {
+                A.CuatroUltimas = true;
+            }
+            A.ConfirmoDJ = true;
+
+
+            if (chMateriaDJ2.Checked)
+            {
+                foreach (KeyValuePair<string, string> KeyValue in C.DiccionarioDeMaterias)
+                {
+                    if (KeyValue.Value == lblMateriaDJ1.Text)
+                    {
+                        A.MateriasAprobadasDJ.Add(KeyValue.Key);
+                    }
+                }
+
+            }
+
+
+            if (chMateriaDJ4.Checked)
+            {
+                foreach (KeyValuePair<string, string> KeyValue in C.DiccionarioDeMaterias)
+                {
+                    if (KeyValue.Value == lblMateriaDJ2.Text)
+                    {
+                        A.MateriasAprobadasDJ.Add(KeyValue.Key);
+                    }
+                }
+
+            }
+
+            if (chMateriaDJ6.Checked)
+            {
+                foreach (KeyValuePair<string, string> KeyValue in C.DiccionarioDeMaterias)
+                {
+                    if (KeyValue.Value == lblMateriaDJ3.Text)
+                    {
+                        A.MateriasAprobadasDJ.Add(KeyValue.Key);
+                    }
+                }
+
+            }
+
+            if (chMateriaDJ8.Checked)
+            {
+                foreach (KeyValuePair<string, string> KeyValue in C.DiccionarioDeMaterias)
+                {
+                    if (KeyValue.Value == lblMateriaDJ4.Text)
+                    {
+                        A.MateriasAprobadasDJ.Add(KeyValue.Key);
+                    }
+                }
+
+            }
+
+
+
+
+            A.GuardarAlumno();
             this.Hide();
             FormDeclaracionJuradaNotificacion Form = new FormDeclaracionJuradaNotificacion();
             Form.Show();

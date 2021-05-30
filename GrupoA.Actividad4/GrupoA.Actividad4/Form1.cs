@@ -43,15 +43,28 @@ namespace GrupoA.Actividad4
         {
 
             Alumno A = new Alumno();
-            string error = "";
+            string error = "";           
 
             // si ya confirmé la declaración jurada, me lleva directamente a la notificación de la misma
             Inscripcion I = new Inscripcion();
-            if (I.VerificarInscripcion() && A.EsRegular)
+
+            
+
+            if (I.VerificarInscripcion() && A.EsRegular && A.AproboCBC)
             {
-                this.Hide();
-                FormDeclaracionJurada Form = new FormDeclaracionJurada();
-                Form.Show();
+                if (A.NecesitaDJ)
+                {
+                    this.Hide();
+                    FormDeclaracionJurada Form = new FormDeclaracionJurada();
+                    Form.Show();
+                }
+                else
+                {
+                    this.Hide();
+                    FormSeleccionMaterias Form = new FormSeleccionMaterias();
+                    Form.Show();
+                }
+                
             }
             else
             {
@@ -65,6 +78,10 @@ namespace GrupoA.Actividad4
                 {
                     error += $"La inscripción no está disponible en este momento\n Fecha de inicio: {I.FechaInicio:d}\n Fecha de fin: {I.FechaFin:d}\n";
 
+                }
+                if (!A.AproboCBC)
+                {
+                    error += $"Debés tener aprobado el CBC para poder inciar la inscripción a las materias del segundo tramo\n";
                 }
 
                 MessageBox.Show(error, "Error");
