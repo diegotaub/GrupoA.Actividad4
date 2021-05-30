@@ -57,7 +57,7 @@ namespace GrupoA.Actividad4
                     } else if (materia.Split('|')[4] == "R")
                     {
                         Carrera C = new Carrera(Carrera);
-                        MateriasRegularizadas.Add(C.DiccionarioDeMaterias[materia.Split('|')[1]]);
+                        MateriasRegularizadas.Add(materia.Split('|')[1]);
                     }
                     
                     if(short.Parse(materia.Split('|')[2]) != 0 && materia.Split('|')[4] == "A")

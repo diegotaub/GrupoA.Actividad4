@@ -40,7 +40,7 @@ namespace GrupoA.Actividad4
                     cbMateria3.Items.Add(materias.Value);
                     cbMateria4.Items.Add(materias.Value);
                 }
-                else if(C.DiccionarioDeCorrelativas[materias.Key].Count == 0)
+                else if(C.DiccionarioDeCorrelativas[materias.Key].Count == 1 && C.DiccionarioDeCorrelativas[materias.Key][0] == "")
                 {
                     cbMateria1.Items.Add(materias.Value);
                     cbMateria2.Items.Add(materias.Value);
@@ -56,6 +56,8 @@ namespace GrupoA.Actividad4
                 }
                 
             }
+
+            
         }
 
         private void btnAtrasSeleccionMaterias_Click(object sender, EventArgs e)
@@ -67,9 +69,25 @@ namespace GrupoA.Actividad4
 
         private void btnAceptarSeleccionMaterias_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormConfirmacionMaterias Form = new FormConfirmacionMaterias();
-            Form.Show();
+
+            if(
+                (cbMateria1.Text != "" && cbMateria1.Text == cbMateria2.Text) ||
+                (cbMateria1.Text != "" && cbMateria1.Text == cbMateria3.Text) ||
+                (cbMateria1.Text != "" && cbMateria1.Text == cbMateria4.Text) ||
+                (cbMateria2.Text != "" && cbMateria1.Text == cbMateria3.Text) ||
+                (cbMateria2.Text != "" && cbMateria1.Text == cbMateria4.Text) ||
+                (cbMateria3.Text != "" && cbMateria1.Text == cbMateria4.Text) 
+                )
+            {
+                MessageBox.Show("No puede inscribirse más de una vez en la misma materia", "Error");
+            }
+            else
+            {
+                this.Hide();
+                FormConfirmacionMaterias Form = new FormConfirmacionMaterias();
+                Form.Show();
+            }
+            
         }
     }
 }
