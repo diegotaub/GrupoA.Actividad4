@@ -48,23 +48,32 @@ namespace GrupoA.Actividad4
             // si ya confirmé la declaración jurada, me lleva directamente a la notificación de la misma
             Inscripcion I = new Inscripcion();
 
-            
+
 
             if (I.VerificarInscripcion() && A.EsRegular && A.AproboCBC)
             {
-                if (A.NecesitaDJ)
+
+                if (A.ConfirmoDJ)
+                {
+                    this.Hide();
+                    FormDeclaracionJuradaNotificacion Form = new FormDeclaracionJuradaNotificacion();
+                    Form.Show();
+
+                }
+                else if (A.NecesitaDJ)
                 {
                     this.Hide();
                     FormDeclaracionJurada Form = new FormDeclaracionJurada();
                     Form.Show();
                 }
+                
                 else
                 {
                     this.Hide();
                     FormSeleccionMaterias Form = new FormSeleccionMaterias();
                     Form.Show();
                 }
-                
+
             }
             else
             {

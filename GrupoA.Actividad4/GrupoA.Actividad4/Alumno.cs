@@ -12,10 +12,21 @@ namespace GrupoA.Actividad4
 
         public Alumno()
         {
+
+            foreach (string carrera in File.ReadAllLines($@"{Environment.CurrentDirectory}\carreras.txt").Skip(1))
+            {
+                if (Carrera == carrera.Split('|')[0])
+                {
+                    Carrera C = new Carrera(carrera.Split('|')[0]);
+                }
+            }
+
             MateriasAprobadas = new List<string>();
             ListaNotas = new List<short>();
             ListaCuatrimestres = new List<int>();
             MateriasAprobadasDJ = new List<string>();
+            MateriasRegularizadas = new List<string>();
+            MateriasDisponibles = new List<string>();
             foreach (string alumno in File.ReadAllLines($@"{Environment.CurrentDirectory}\alumno.txt").Skip(1))
             {
                 
@@ -31,13 +42,31 @@ namespace GrupoA.Actividad4
 
             }
 
-            foreach (string materia in File.ReadAllLines($@"{Environment.CurrentDirectory}\materias_aprobadas.txt").Skip(1))
+            foreach (string materia in File.ReadAllLines($@"{Environment.CurrentDirectory}\condicion_materias.txt").Skip(1))
             {
                 if(long.Parse(materia.Split('|')[0]) == Registro)
                 {
-                    MateriasAprobadas.Add(materia.Split('|')[1]);
-                    ListaNotas.Add(short.Parse(materia.Split('|')[2]));
+                    if(int.Parse(materia.Split('|')[2]) != 0 && materia.Split('|')[4] == "A")
+                    {
+                        MateriasAprobadas.Add(materia.Split('|')[1]);
+                    }
+                    else if (materia.Split('|')[4] == "A")
+                    {
+                        Carrera C = new Carrera(Carrera);
+                        MateriasAprobadasDJ.Add(C.DiccionarioDeMaterias[materia.Split('|')[1]]);
+                    } else if (materia.Split('|')[4] == "R")
+                    {
+                        Carrera C = new Carrera(Carrera);
+                        MateriasRegularizadas.Add(C.DiccionarioDeMaterias[materia.Split('|')[1]]);
+                    }
+                    
+                    if(short.Parse(materia.Split('|')[2]) != 0 && materia.Split('|')[4] == "A")
+                    {
+                        ListaNotas.Add(short.Parse(materia.Split('|')[2]));
+                    }
+                    
                     ListaCuatrimestres.Add(int.Parse(materia.Split('|')[3]));
+                    
                 }
                 
             }
@@ -49,13 +78,7 @@ namespace GrupoA.Actividad4
 
             Promedio = Promedio / ListaNotas.Count();
 
-            foreach(string carrera in File.ReadAllLines($@"{Environment.CurrentDirectory}\carreras.txt").Skip(1))
-            {
-                if(Carrera == carrera.Split('|')[0])
-                {
-                    Carrera C = new Carrera(carrera.Split('|')[0]);
-                }
-            }
+            
 
             if (!MateriasAprobadas.Contains("241") ||
                 !MateriasAprobadas.Contains("242") ||
@@ -142,27 +165,33 @@ namespace GrupoA.Actividad4
             File.WriteAllLines(($@"{Environment.CurrentDirectory}\alumno.txt"), archivotemporal);
 
             archivotemporal.Clear();
-            
-                foreach (string materia in MateriasAprobadasDJ)
-                {
-                    File.AppendAllText($@"{Environment.CurrentDirectory}\materias_aprobadas.txt", Environment.NewLine + $"{Registro}|{materia}|{0}|{cuatrimestreAnterior}");
 
-                }
-            
+            foreach (string materia in MateriasAprobadasDJ)
+            {
+                File.AppendAllText($@"{Environment.CurrentDirectory}\condicion_materias.txt", Environment.NewLine + $"{Registro}|{materia}|{0}|{cuatrimestreAnterior}|A");
 
-            
-            
+            }
 
+            foreach (string materia in MateriasRegularizadas)
+            {
+                File.AppendAllText($@"{Environment.CurrentDirectory}\condicion_materias.txt", Environment.NewLine + $"{Registro}|{materia}|{0}|{cuatrimestreAnterior}|R");
 
-
-
-           
+            }
 
 
 
 
-           
-            
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -185,7 +214,9 @@ namespace GrupoA.Actividad4
         public List<int> ListaCuatrimestres { get; }
         public List<string> MateriasCursadasCuatriAnterior { get; }
         public List<string> MateriasAprobadas {get; set;}
+        public List<string> MateriasRegularizadas { get; set; }
         public List<string> MateriasAprobadasDJ { get; set; }
+        public List<string> MateriasDisponibles { get; set; }
 
         public bool EsRegular { get; }
         public bool ConfirmoInscripcion { get; set; }

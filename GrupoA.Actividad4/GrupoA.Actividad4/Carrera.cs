@@ -21,6 +21,7 @@ namespace GrupoA.Actividad4
                     NombreCarrera = carrera.Split('|')[1];
                     CantidadMaterias = int.Parse(carrera.Split('|')[2]);
                     DiccionarioDeMaterias = new Dictionary<string, string>();
+                    DiccionarioDeCorrelativas = new Dictionary<string, List<string>>();
                 }
             }
 
@@ -61,6 +62,42 @@ namespace GrupoA.Actividad4
             return DiccionarioDeMaterias;
         }
 
+        public Dictionary<string, List<string>> CargarCorrelativas(string codigoCarrera)
+        {
+            string nombreArchivo = "";
+            switch (codigoCarrera)
+            {
+                case "1":
+                    nombreArchivo = "materias_contador.txt";
+                    break;
+                case "2":
+                    nombreArchivo = "materias_administracion.txt";
+                    break;
+                case "3":
+                    nombreArchivo = "materias_economia.txt";
+                    break;
+                case "4":
+                    nombreArchivo = "materias_sistemas.txt";
+                    break;
+                case "5":
+                    nombreArchivo = "materias_actuario.txt";
+                    break;
+
+            }
+
+            List<string> correlativas = new List<string>();
+
+            foreach (string materia in File.ReadAllLines($@"{Environment.CurrentDirectory}\{nombreArchivo}").Skip(1))
+            {
+
+                 correlativas = materia.Split('|')[2].Split(',').ToList();
+
+                DiccionarioDeCorrelativas.Add(materia.Split('|')[0], correlativas);
+
+            }
+            return DiccionarioDeCorrelativas;
+        }
+
 
 
 
@@ -68,5 +105,6 @@ namespace GrupoA.Actividad4
         public string NombreCarrera { get; }
         public int CantidadMaterias { get; }
         public Dictionary<string, string> DiccionarioDeMaterias { get; }
+        public Dictionary<string, List<string>> DiccionarioDeCorrelativas { get; }
     }
 }

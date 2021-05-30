@@ -30,10 +30,11 @@ namespace GrupoA.Actividad4
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbNotificacionDJ = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAtrasNotificacionDJ = new System.Windows.Forms.Button();
             this.btnContinuarNotificacionDJ = new System.Windows.Forms.Button();
+            this.lblMarcoCuatroUltimas = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -44,23 +45,23 @@ namespace GrupoA.Actividad4
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 0;
             // 
-            // listBox1
+            // lbNotificacionDJ
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(235, 115);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(317, 147);
-            this.listBox1.TabIndex = 1;
+            this.lbNotificacionDJ.FormattingEnabled = true;
+            this.lbNotificacionDJ.Location = new System.Drawing.Point(235, 115);
+            this.lbNotificacionDJ.Name = "lbNotificacionDJ";
+            this.lbNotificacionDJ.Size = new System.Drawing.Size(317, 147);
+            this.lbNotificacionDJ.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(249, 34);
+            this.label2.Location = new System.Drawing.Point(168, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(303, 31);
+            this.label2.Size = new System.Drawing.Size(464, 31);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Sus selecciones fueron:";
+            this.label2.Text = "Comprobante de Declaración Jurada:";
             // 
             // btnAtrasNotificacionDJ
             // 
@@ -82,15 +83,26 @@ namespace GrupoA.Actividad4
             this.btnContinuarNotificacionDJ.UseVisualStyleBackColor = true;
             this.btnContinuarNotificacionDJ.Click += new System.EventHandler(this.btnContinuarNotificacionDJ_Click);
             // 
+            // lblMarcoCuatroUltimas
+            // 
+            this.lblMarcoCuatroUltimas.AutoSize = true;
+            this.lblMarcoCuatroUltimas.Location = new System.Drawing.Point(260, 291);
+            this.lblMarcoCuatroUltimas.Name = "lblMarcoCuatroUltimas";
+            this.lblMarcoCuatroUltimas.Size = new System.Drawing.Size(35, 13);
+            this.lblMarcoCuatroUltimas.TabIndex = 5;
+            this.lblMarcoCuatroUltimas.Text = "label3";
+            this.lblMarcoCuatroUltimas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // FormDeclaracionJuradaNotificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblMarcoCuatroUltimas);
             this.Controls.Add(this.btnContinuarNotificacionDJ);
             this.Controls.Add(this.btnAtrasNotificacionDJ);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lbNotificacionDJ);
             this.Controls.Add(this.label1);
             this.Name = "FormDeclaracionJuradaNotificacion";
             this.Text = "FormDeclaracionJuradaNotificacion";
@@ -102,9 +114,10 @@ namespace GrupoA.Actividad4
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbNotificacionDJ;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAtrasNotificacionDJ;
         private System.Windows.Forms.Button btnContinuarNotificacionDJ;
+        private System.Windows.Forms.Label lblMarcoCuatroUltimas;
     }
 }

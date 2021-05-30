@@ -92,72 +92,130 @@ namespace GrupoA.Actividad4
 
         private void btnConfirmarDJ_Click(object sender, EventArgs e)
         {
+            if((chMateriaDJ1.Checked && chMateriaDJ2.Checked) || 
+                (chMateriaDJ3.Checked && chMateriaDJ4.Checked) || 
+                (chMateriaDJ5.Checked && chMateriaDJ6.Checked) || 
+                (chMateriaDJ7.Checked && chMateriaDJ8.Checked))
+            {
+                MessageBox.Show("No puede elegir 'Regularizada' y 'Aprobada' para la misma materia");
+            }
+            else
+            {
+                Alumno A = new Alumno();
+                Carrera C = new Carrera(A.Carrera);
+                if (ch4ultimasDJ.Checked)
+                {
+                    A.CuatroUltimas = true;
+                }
+                A.ConfirmoDJ = true;
+
+
+                if (chMateriaDJ2.Checked)
+                {
+                    foreach (KeyValuePair<string, string> KeyValue in C.DiccionarioDeMaterias)
+                    {
+                        if (KeyValue.Value == lblMateriaDJ1.Text)
+                        {
+                            A.MateriasAprobadasDJ.Add(KeyValue.Key);
+                        }
+                    }
+
+                }
+
+
+                if (chMateriaDJ4.Checked)
+                {
+                    foreach (KeyValuePair<string, string> KeyValue in C.DiccionarioDeMaterias)
+                    {
+                        if (KeyValue.Value == lblMateriaDJ2.Text)
+                        {
+                            A.MateriasAprobadasDJ.Add(KeyValue.Key);
+                        }
+                    }
+
+                }
+
+                if (chMateriaDJ6.Checked)
+                {
+                    foreach (KeyValuePair<string, string> KeyValue in C.DiccionarioDeMaterias)
+                    {
+                        if (KeyValue.Value == lblMateriaDJ3.Text)
+                        {
+                            A.MateriasAprobadasDJ.Add(KeyValue.Key);
+                        }
+                    }
+
+                }
+
+                if (chMateriaDJ8.Checked)
+                {
+                    foreach (KeyValuePair<string, string> KeyValue in C.DiccionarioDeMaterias)
+                    {
+                        if (KeyValue.Value == lblMateriaDJ4.Text)
+                        {
+                            A.MateriasAprobadasDJ.Add(KeyValue.Key);
+                        }
+                    }
+
+                }
+
+                if (chMateriaDJ1.Checked)
+                {
+                    foreach (KeyValuePair<string, string> KeyValue in C.DiccionarioDeMaterias)
+                    {
+                        if (KeyValue.Value == lblMateriaDJ1.Text)
+                        {
+                            A.MateriasRegularizadas.Add(KeyValue.Key);
+                        }
+                    }
+
+                }
+
+                if (chMateriaDJ3.Checked)
+                {
+                    foreach (KeyValuePair<string, string> KeyValue in C.DiccionarioDeMaterias)
+                    {
+                        if (KeyValue.Value == lblMateriaDJ2.Text)
+                        {
+                            A.MateriasRegularizadas.Add(KeyValue.Key);
+                        }
+                    }
+
+                }
+
+                if (chMateriaDJ5.Checked)
+                {
+                    foreach (KeyValuePair<string, string> KeyValue in C.DiccionarioDeMaterias)
+                    {
+                        if (KeyValue.Value == lblMateriaDJ3.Text)
+                        {
+                            A.MateriasRegularizadas.Add(KeyValue.Key);
+                        }
+                    }
+
+                }
+
+                if (chMateriaDJ7.Checked)
+                {
+                    foreach (KeyValuePair<string, string> KeyValue in C.DiccionarioDeMaterias)
+                    {
+                        if (KeyValue.Value == lblMateriaDJ4.Text)
+                        {
+                            A.MateriasRegularizadas.Add(KeyValue.Key);
+                        }
+                    }
+
+                }
+
+
+
+
+                A.GuardarAlumno();
+                this.Hide();
+                FormDeclaracionJuradaNotificacion Form = new FormDeclaracionJuradaNotificacion();
+                Form.Show();
+            }
             
-            Alumno A = new Alumno();
-            Carrera C = new Carrera(A.Carrera);
-            if (ch4ultimasDJ.Checked)
-            {
-                A.CuatroUltimas = true;
-            }
-            A.ConfirmoDJ = true;
-
-
-            if (chMateriaDJ2.Checked)
-            {
-                foreach (KeyValuePair<string, string> KeyValue in C.DiccionarioDeMaterias)
-                {
-                    if (KeyValue.Value == lblMateriaDJ1.Text)
-                    {
-                        A.MateriasAprobadasDJ.Add(KeyValue.Key);
-                    }
-                }
-
-            }
-
-
-            if (chMateriaDJ4.Checked)
-            {
-                foreach (KeyValuePair<string, string> KeyValue in C.DiccionarioDeMaterias)
-                {
-                    if (KeyValue.Value == lblMateriaDJ2.Text)
-                    {
-                        A.MateriasAprobadasDJ.Add(KeyValue.Key);
-                    }
-                }
-
-            }
-
-            if (chMateriaDJ6.Checked)
-            {
-                foreach (KeyValuePair<string, string> KeyValue in C.DiccionarioDeMaterias)
-                {
-                    if (KeyValue.Value == lblMateriaDJ3.Text)
-                    {
-                        A.MateriasAprobadasDJ.Add(KeyValue.Key);
-                    }
-                }
-
-            }
-
-            if (chMateriaDJ8.Checked)
-            {
-                foreach (KeyValuePair<string, string> KeyValue in C.DiccionarioDeMaterias)
-                {
-                    if (KeyValue.Value == lblMateriaDJ4.Text)
-                    {
-                        A.MateriasAprobadasDJ.Add(KeyValue.Key);
-                    }
-                }
-
-            }
-
-
-
-
-            A.GuardarAlumno();
-            this.Hide();
-            FormDeclaracionJuradaNotificacion Form = new FormDeclaracionJuradaNotificacion();
-            Form.Show();
         }
     }
 }

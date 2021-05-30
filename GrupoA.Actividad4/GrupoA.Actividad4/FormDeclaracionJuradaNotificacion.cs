@@ -15,6 +15,25 @@ namespace GrupoA.Actividad4
         public FormDeclaracionJuradaNotificacion()
         {
             InitializeComponent();
+            Alumno A = new Alumno();
+            if (A.CuatroUltimas)
+            {
+                lblMarcoCuatroUltimas.Text = "Marcó que se encuentra en las cuatro últimas materias";
+            }
+            else
+            {
+                lblMarcoCuatroUltimas.Text = "No se encuentra en las cuatro últimas materias";
+            }
+
+            foreach(string materia in A.MateriasAprobadasDJ)
+            {
+                lbNotificacionDJ.Items.Add(materia + " - Aprobada");
+            }
+
+            foreach (string materia in A.MateriasRegularizadas)
+            {
+                lbNotificacionDJ.Items.Add(materia + " - Regularizada");
+            }
         }
 
         private void btnAtrasNotificacionDJ_Click(object sender, EventArgs e)
