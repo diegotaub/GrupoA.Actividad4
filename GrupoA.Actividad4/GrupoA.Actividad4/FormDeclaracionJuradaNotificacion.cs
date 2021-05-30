@@ -34,6 +34,11 @@ namespace GrupoA.Actividad4
             {
                 lbNotificacionDJ.Items.Add(materia + " - Regularizada");
             }
+
+            if(A.MateriasAprobadasDJ.Count == 0 && A.MateriasRegularizadas.Count == 0)
+            {
+                lbNotificacionDJ.Items.Add("No marcó ninguna aprobada/regularizada");
+            }
         }
 
         private void btnAtrasNotificacionDJ_Click(object sender, EventArgs e)

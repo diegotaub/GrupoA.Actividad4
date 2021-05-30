@@ -103,6 +103,7 @@ namespace GrupoA.Actividad4
             this.cbMateria1.Name = "cbMateria1";
             this.cbMateria1.Size = new System.Drawing.Size(121, 21);
             this.cbMateria1.TabIndex = 4;
+            this.cbMateria1.SelectedIndexChanged += new System.EventHandler(this.cbMateria1_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -183,6 +184,7 @@ namespace GrupoA.Actividad4
             this.cbMateria2.Name = "cbMateria2";
             this.cbMateria2.Size = new System.Drawing.Size(121, 21);
             this.cbMateria2.TabIndex = 12;
+            this.cbMateria2.SelectedIndexChanged += new System.EventHandler(this.cbMateria2_SelectedIndexChanged);
             // 
             // cbAlternativa2
             // 
@@ -243,6 +245,7 @@ namespace GrupoA.Actividad4
             this.cbMateria3.Name = "cbMateria3";
             this.cbMateria3.Size = new System.Drawing.Size(121, 21);
             this.cbMateria3.TabIndex = 20;
+            this.cbMateria3.SelectedIndexChanged += new System.EventHandler(this.cbMateria3_SelectedIndexChanged);
             // 
             // cbAlternativa3
             // 
@@ -348,6 +351,7 @@ namespace GrupoA.Actividad4
             this.cbMateria4.Name = "cbMateria4";
             this.cbMateria4.Size = new System.Drawing.Size(121, 21);
             this.cbMateria4.TabIndex = 30;
+            this.cbMateria4.SelectedIndexChanged += new System.EventHandler(this.cbMateria4_SelectedIndexChanged);
             // 
             // btnAtrasSeleccionMaterias
             // 

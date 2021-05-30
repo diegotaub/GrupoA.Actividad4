@@ -26,9 +26,18 @@ namespace GrupoA.Actividad4
             foreach (KeyValuePair<string, string> materias in C.DiccionarioDeMaterias)
             {
 
-                
+                bool NoPuedeCursar;
 
-                 bool NoPuedeCursar = C.DiccionarioDeCorrelativas[materias.Key].Except(A.MateriasAprobadas).Any();
+                 
+
+                if (A.CuatroUltimas)
+                {
+                    NoPuedeCursar = false;
+                }
+                else
+                {
+                    NoPuedeCursar = C.DiccionarioDeCorrelativas[materias.Key].Except(A.MateriasAprobadas).Any();
+                }
 
                 if (A.MateriasAprobadas.Contains(materias.Key))
                 {
@@ -58,6 +67,17 @@ namespace GrupoA.Actividad4
             }
 
             
+            cbPrimera2.Items.Add(Curso.CargarCursos(cbMateria2.Text, "P"));
+            cbPrimera3.Items.Add(Curso.CargarCursos(cbMateria3.Text, "P"));
+            
+            cbAlternativa2.Items.Add(Curso.CargarCursos(cbMateria2.Text, "P"));
+            cbAlternativa3.Items.Add(Curso.CargarCursos(cbMateria3.Text, "P"));
+            cbPrimera4.Items.Add(Curso.CargarCursos(cbMateria4.Text, "V"));
+            cbAlternativa4.Items.Add(Curso.CargarCursos(cbMateria4.Text, "V"));
+
+
+
+
         }
 
         private void btnAtrasSeleccionMaterias_Click(object sender, EventArgs e)
@@ -88,6 +108,107 @@ namespace GrupoA.Actividad4
                 Form.Show();
             }
             
+        }
+
+        private void cbMateria1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbPrimera1.Items.Clear();
+            cbAlternativa1.Items.Clear();
+            cbPrimera1.Text = "";
+            cbAlternativa1.Text = "";
+            Alumno A = new Alumno();
+            Carrera C = new Carrera(A.Carrera);
+            string CodigoMateria = "";
+
+            foreach(KeyValuePair<string, string> materia in C.DiccionarioDeMaterias)
+            {
+                if(cbMateria1.Text == materia.Value)
+                {
+                    CodigoMateria = materia.Key;
+                }
+            }
+
+            foreach(Curso curso in Curso.CargarCursos(CodigoMateria, "P"))
+            {
+                cbPrimera1.Items.Add(curso.CodigoCurso);
+                cbAlternativa1.Items.Add(curso.CodigoCurso);
+            }
+            
+        }
+
+        private void cbMateria2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbPrimera2.Items.Clear();
+            cbAlternativa2.Items.Clear();
+            cbPrimera2.Text = "";
+            cbAlternativa2.Text = "";
+            Alumno A = new Alumno();
+            Carrera C = new Carrera(A.Carrera);
+            string CodigoMateria = "";
+
+            foreach (KeyValuePair<string, string> materia in C.DiccionarioDeMaterias)
+            {
+                if (cbMateria2.Text == materia.Value)
+                {
+                    CodigoMateria = materia.Key;
+                }
+            }
+
+            foreach (Curso curso in Curso.CargarCursos(CodigoMateria, "P"))
+            {
+                cbPrimera2.Items.Add(curso.CodigoCurso);
+                cbAlternativa2.Items.Add(curso.CodigoCurso);
+            }
+        }
+
+        private void cbMateria3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbPrimera3.Items.Clear();
+            cbAlternativa3.Items.Clear();
+            cbPrimera3.Text = "";
+            cbAlternativa3.Text = "";
+            Alumno A = new Alumno();
+            Carrera C = new Carrera(A.Carrera);
+            string CodigoMateria = "";
+
+            foreach (KeyValuePair<string, string> materia in C.DiccionarioDeMaterias)
+            {
+                if (cbMateria3.Text == materia.Value)
+                {
+                    CodigoMateria = materia.Key;
+                }
+            }
+
+            foreach (Curso curso in Curso.CargarCursos(CodigoMateria, "P"))
+            {
+                cbPrimera3.Items.Add(curso.CodigoCurso);
+                cbAlternativa3.Items.Add(curso.CodigoCurso);
+            }
+        }
+
+        private void cbMateria4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbPrimera4.Items.Clear();
+            cbAlternativa4.Items.Clear();
+            cbPrimera4.Text = "";
+            cbAlternativa4.Text = "";
+            Alumno A = new Alumno();
+            Carrera C = new Carrera(A.Carrera);
+            string CodigoMateria = "";
+
+            foreach (KeyValuePair<string, string> materia in C.DiccionarioDeMaterias)
+            {
+                if (cbMateria4.Text == materia.Value)
+                {
+                    CodigoMateria = materia.Key;
+                }
+            }
+
+            foreach (Curso curso in Curso.CargarCursos(CodigoMateria, "V"))
+            {
+                cbPrimera4.Items.Add(curso.CodigoCurso);
+                cbAlternativa4.Items.Add(curso.CodigoCurso);
+            }
         }
     }
 }
