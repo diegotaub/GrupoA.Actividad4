@@ -25,12 +25,14 @@ namespace GrupoA.Actividad4
                 lblMarcoCuatroUltimas.Text = "No se encuentra en las cuatro últimas materias";
             }
 
+            Carrera C = new Carrera(A.Carrera);
+
             foreach(string materia in A.MateriasAprobadasDJ)
             {
-                lbNotificacionDJ.Items.Add(materia + " - Aprobada");
+                lbNotificacionDJ.Items.Add(C.DiccionarioDeMaterias[materia] + " - Aprobada");
             }
 
-            Carrera C = new Carrera(A.Carrera);
+            
 
             foreach (string materia in A.MateriasRegularizadas)
             {

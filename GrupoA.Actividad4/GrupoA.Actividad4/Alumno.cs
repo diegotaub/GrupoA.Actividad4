@@ -53,7 +53,7 @@ namespace GrupoA.Actividad4
                     else if (materia.Split('|')[4] == "A")
                     {
                         Carrera C = new Carrera(Carrera);
-                        MateriasAprobadasDJ.Add(C.DiccionarioDeMaterias[materia.Split('|')[1]]);
+                        MateriasAprobadasDJ.Add(materia.Split('|')[1]);
                     } else if (materia.Split('|')[4] == "R")
                     {
                         Carrera C = new Carrera(Carrera);

@@ -49,9 +49,10 @@ namespace GrupoA.Actividad4
                 else
                 {
                     NoPuedeCursar = C.DiccionarioDeCorrelativas[materias.Key].Except(A.MateriasAprobadas).Any();
+                   
                 }
 
-                if (A.MateriasAprobadas.Contains(materias.Key))
+                if (A.MateriasAprobadas.Contains(materias.Key) || A.MateriasAprobadasDJ.Contains(materias.Key))
                 {
                     continue;
                 }else if (A.MateriasRegularizadas.Contains(materias.Key))
