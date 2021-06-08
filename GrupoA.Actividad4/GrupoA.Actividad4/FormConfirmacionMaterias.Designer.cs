@@ -33,6 +33,7 @@ namespace GrupoA.Actividad4
             this.btnAtrasConfirmacionMaterias = new System.Windows.Forms.Button();
             this.btnConfirmarConfirmacionMaterias = new System.Windows.Forms.Button();
             this.txtConfirmacionMaterias = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -72,14 +73,27 @@ namespace GrupoA.Actividad4
             this.txtConfirmacionMaterias.Multiline = true;
             this.txtConfirmacionMaterias.Name = "txtConfirmacionMaterias";
             this.txtConfirmacionMaterias.ReadOnly = true;
-            this.txtConfirmacionMaterias.Size = new System.Drawing.Size(422, 186);
+            this.txtConfirmacionMaterias.Size = new System.Drawing.Size(422, 158);
             this.txtConfirmacionMaterias.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(158, 272);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(513, 32);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Tenga en cuenta que las materias seleccionadas pueden no llegar a ser asignadas, " +
+    "\r\ndependiendo del corte de ranking y de la cantidad de inscriptos";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormConfirmacionMaterias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 368);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtConfirmacionMaterias);
             this.Controls.Add(this.btnConfirmarConfirmacionMaterias);
             this.Controls.Add(this.btnAtrasConfirmacionMaterias);
@@ -98,5 +112,6 @@ namespace GrupoA.Actividad4
         private System.Windows.Forms.Button btnAtrasConfirmacionMaterias;
         private System.Windows.Forms.Button btnConfirmarConfirmacionMaterias;
         private System.Windows.Forms.TextBox txtConfirmacionMaterias;
+        private System.Windows.Forms.Label label2;
     }
 }
