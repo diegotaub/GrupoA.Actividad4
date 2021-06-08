@@ -179,10 +179,28 @@ namespace GrupoA.Actividad4
             }
 
 
+            //Se guarda en archivo permanente
 
+            lineas_alumno = File.ReadLines($@"{Environment.CurrentDirectory}\alumnos.txt");
+            foreach (var line in lineas_alumno)
+            {
+                archivotemporal.Add(line);
+            }
 
+            for (int i = 1; i < archivotemporal.Count; i++)
+            {
+                if (Registro == long.Parse(archivotemporal[i].Split('|')[2]))
+                {
+                    archivotemporal[i] = ($"{Nombre}|{Apellido}|{Registro}|{Ranking}|{Carrera}|{EsRegular}|{ConfirmoInscripcion}|{ConfirmoDJ}|{CuatroUltimas}");
+                    break;
+                }
+            }
 
+            File.Delete($@"{Environment.CurrentDirectory}\alumnos.txt");
+            File.WriteAllLines(($@"{Environment.CurrentDirectory}\alumnos.txt"), archivotemporal);
+            archivotemporal.Clear();
 
+            
 
 
 

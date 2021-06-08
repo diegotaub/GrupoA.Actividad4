@@ -11,8 +11,9 @@ using System.Windows.Forms;
 namespace GrupoA.Actividad4
 {
     public partial class FormSeleccionMaterias : Form
-    {        
-     
+    {
+
+        
 
         public FormSeleccionMaterias()
         {
@@ -139,7 +140,7 @@ namespace GrupoA.Actividad4
             {
 
                
-
+                
 
                 this.Hide();
                 FormConfirmacionMaterias Form = new FormConfirmacionMaterias();

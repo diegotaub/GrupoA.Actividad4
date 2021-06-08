@@ -86,6 +86,7 @@ namespace GrupoA.Actividad4
             this.Controls.Add(this.label1);
             this.Name = "FormConfirmacionMaterias";
             this.Text = "FormConfirmacionMaterias";
+            this.Shown += new System.EventHandler(this.FormConfirmacionMaterias_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

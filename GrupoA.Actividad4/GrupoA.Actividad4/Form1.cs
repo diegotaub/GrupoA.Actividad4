@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace GrupoA.Actividad4
 {
@@ -133,5 +134,21 @@ namespace GrupoA.Actividad4
             
             
         }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            
+
+            //reemplazar alumnos.txt por archivoTemporal
+            //limpiar archivoTemporal
+
+
+
+            
+        }
+
+        
+        
     }
 }

@@ -476,9 +476,6 @@ namespace GrupoA.Actividad4
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbPrimera1;
-        private System.Windows.Forms.ComboBox cbAlternativa1;
-        private System.Windows.Forms.ComboBox cbMateria1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -487,18 +484,12 @@ namespace GrupoA.Actividad4
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cbAlternativa2;
-        private System.Windows.Forms.ComboBox cbPrimera2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox cbMateria3;
-        private System.Windows.Forms.ComboBox cbAlternativa3;
-        private System.Windows.Forms.ComboBox cbPrimera3;
         private System.Windows.Forms.Button btnAtrasSeleccionMaterias;
         private System.Windows.Forms.Button btnAceptarSeleccionMaterias;
-        private System.Windows.Forms.ComboBox cbMateria2;
         private System.Windows.Forms.Button btnBorrarSeleccion;
         private System.Windows.Forms.TextBox txtCarrera1;
         private System.Windows.Forms.TextBox txtCarrera2;
@@ -508,11 +499,20 @@ namespace GrupoA.Actividad4
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox cbPrimera4;
         private System.Windows.Forms.TextBox txtCarrera4;
-        private System.Windows.Forms.ComboBox cbAlternativa4;
-        private System.Windows.Forms.ComboBox cbMateria4;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        public System.Windows.Forms.ComboBox cbPrimera1;
+        public System.Windows.Forms.ComboBox cbAlternativa1;
+        public System.Windows.Forms.ComboBox cbMateria1;
+        public System.Windows.Forms.ComboBox cbAlternativa2;
+        public System.Windows.Forms.ComboBox cbPrimera2;
+        public System.Windows.Forms.ComboBox cbMateria3;
+        public System.Windows.Forms.ComboBox cbAlternativa3;
+        public System.Windows.Forms.ComboBox cbPrimera3;
+        public System.Windows.Forms.ComboBox cbMateria2;
+        public System.Windows.Forms.ComboBox cbPrimera4;
+        public System.Windows.Forms.ComboBox cbAlternativa4;
+        public System.Windows.Forms.ComboBox cbMateria4;
     }
 }

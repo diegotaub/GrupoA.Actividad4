@@ -49,6 +49,9 @@ namespace GrupoA.Actividad4
 
         static public string PedirConfirmacionDeCursos(string materia, string curso1, string curso2)
         {
+            
+
+
             ComboBox cbMateria = Application.OpenForms["FormSeleccionMaterias"].Controls[materia] as ComboBox;
             ComboBox cbPrimera = Application.OpenForms["FormSeleccionMaterias"].Controls[curso1] as ComboBox;
             ComboBox cbAlternativa = Application.OpenForms["FormSeleccionMaterias"].Controls[curso2] as ComboBox;
@@ -75,6 +78,8 @@ namespace GrupoA.Actividad4
                     confirmacionMaterias += $" | Segunda opción: {cbAlternativa.Text}";
                 }
             }
+
+            
 
             return confirmacionMaterias + Environment.NewLine;
         }

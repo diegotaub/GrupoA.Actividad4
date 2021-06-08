@@ -118,7 +118,7 @@ namespace GrupoA.Actividad4
 
 
 
-            File.AppendAllText($@"{Environment.CurrentDirectory}\inscripciones.txt", Environment.NewLine);
+            //File.AppendAllText($@"{Environment.CurrentDirectory}\inscripciones.txt", Environment.NewLine);
             File.AppendAllLines($@"{Environment.CurrentDirectory}\inscripciones.txt", Lineas);
                 
             
@@ -144,11 +144,49 @@ namespace GrupoA.Actividad4
             File.Delete($@"{Environment.CurrentDirectory}\alumno.txt");
             File.WriteAllLines(($@"{Environment.CurrentDirectory}\alumno.txt"), archivotemporal);
 
+            archivotemporal.Clear();
 
+            lineas_alumno = File.ReadLines($@"{Environment.CurrentDirectory}\alumnos.txt");
+            foreach (var line in lineas_alumno)
+            {
+                archivotemporal.Add(line);
+            }
+
+            for (int i = 1; i < archivotemporal.Count; i++)
+            {
+                if (A.Registro == long.Parse(archivotemporal[i].Split('|')[2]))
+                {
+                    archivotemporal[i] = ($"{A.Nombre}|{A.Apellido}|{A.Registro}|{A.Ranking}|{A.Carrera}|{A.EsRegular}|{A.ConfirmoInscripcion}|{A.ConfirmoDJ}|{A.CuatroUltimas}");
+                    break;
+                }
+            }
+
+            File.Delete($@"{Environment.CurrentDirectory}\alumnos.txt");
+            File.WriteAllLines(($@"{Environment.CurrentDirectory}\alumnos.txt"), archivotemporal);
+            archivotemporal.Clear();
 
             this.Hide();
             FormComprobanteInscripcion Form = new FormComprobanteInscripcion();
             Form.Show();
+        }
+
+       
+
+        private void FormConfirmacionMaterias_Shown(object sender, EventArgs e)
+        {
+            string confirmacionMaterias = "";
+
+
+            confirmacionMaterias += Curso.PedirConfirmacionDeCursos("cbMateria1", "cbPrimera1", "cbAlternativa1");
+            confirmacionMaterias += Curso.PedirConfirmacionDeCursos("cbMateria2", "cbPrimera2", "cbAlternativa2");
+            confirmacionMaterias += Curso.PedirConfirmacionDeCursos("cbMateria3", "cbPrimera3", "cbAlternativa3");
+            confirmacionMaterias += Curso.PedirConfirmacionDeCursos("cbMateria4", "cbPrimera4", "cbAlternativa4");
+
+
+
+
+
+            txtConfirmacionMaterias.Text = (confirmacionMaterias);
         }
     }
 }
