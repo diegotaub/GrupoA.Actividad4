@@ -30,12 +30,8 @@ namespace GrupoA.Actividad4
         private void InitializeComponent()
         {
             this.btnInscripciones = new System.Windows.Forms.Button();
-            this.btnCertificados = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.lbMateriasAprobadas = new System.Windows.Forms.ListBox();
             this.lblBienvenido = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblCarrera = new System.Windows.Forms.Label();
@@ -51,33 +47,13 @@ namespace GrupoA.Actividad4
             // 
             // btnInscripciones
             // 
-            this.btnInscripciones.Location = new System.Drawing.Point(568, 28);
+            this.btnInscripciones.Location = new System.Drawing.Point(293, 20);
             this.btnInscripciones.Name = "btnInscripciones";
-            this.btnInscripciones.Size = new System.Drawing.Size(84, 23);
+            this.btnInscripciones.Size = new System.Drawing.Size(92, 35);
             this.btnInscripciones.TabIndex = 0;
             this.btnInscripciones.Text = "Inscripciones";
             this.btnInscripciones.UseVisualStyleBackColor = true;
             this.btnInscripciones.Click += new System.EventHandler(this.btnInscripciones_Click);
-            // 
-            // btnCertificados
-            // 
-            this.btnCertificados.Location = new System.Drawing.Point(288, 28);
-            this.btnCertificados.Name = "btnCertificados";
-            this.btnCertificados.Size = new System.Drawing.Size(84, 23);
-            this.btnCertificados.TabIndex = 1;
-            this.btnCertificados.Text = "Certificados";
-            this.btnCertificados.UseVisualStyleBackColor = true;
-            this.btnCertificados.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(16, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Calificaciones";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // lbMateriasAprobadas
             // 
@@ -99,32 +75,9 @@ namespace GrupoA.Actividad4
             this.lblBienvenido.TabIndex = 4;
             this.lblBienvenido.Text = "Bienvenido, Alumno";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(153, 28);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Campus";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(425, 28);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(105, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Control  de Cuenta";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnInscripciones);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.btnCertificados);
             this.groupBox1.Location = new System.Drawing.Point(40, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(683, 69);
@@ -229,11 +182,7 @@ namespace GrupoA.Actividad4
         #endregion
 
         private System.Windows.Forms.Button btnInscripciones;
-        private System.Windows.Forms.Button btnCertificados;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblBienvenido;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox lbMateriasAprobadas;

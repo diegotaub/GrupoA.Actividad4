@@ -24,7 +24,7 @@ namespace GrupoA.Actividad4
             lblBienvenido.Text = $"Bienvenido, {A.Nombre}";
             lblRegistro.Text = $"Registro: {A.Registro}";
             lblRanking.Text = $"Ranking: {A.Ranking}";
-            lblPromedio.Text = $"Promedio: {A.Promedio}";
+            lblPromedio.Text = $"Promedio: {Math.Round(A.Promedio, 2)}";
             lblCarrera.Text = $"Carrera: {C.NombreCarrera}";
             lblMateriasAprobadas.Text = $"Materias Aprobadas: {A.MateriasAprobadas.Count}/{C.CantidadMaterias} ({Math.Round(Convert.ToDouble(A.MateriasAprobadas.Count) / Convert.ToDouble(C.CantidadMaterias)*100, 2)}%)";
             foreach (string materia in A.MateriasAprobadas)

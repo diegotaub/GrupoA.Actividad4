@@ -44,21 +44,31 @@ namespace GrupoA.Actividad4
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var registro = lbUsuarios.SelectedItem.ToString().Split(' ').LastOrDefault();
 
-            foreach (string alumno in File.ReadAllLines($@"{Environment.CurrentDirectory}\alumnos.txt").Skip(1))
+            if(lbUsuarios.SelectedIndex == -1)
             {
-                if(registro == alumno.Split('|')[2])
+                MessageBox.Show("Debe seleccionar un alumno para continuar", "Error");
+            }
+            else
+            {
+                var registro = lbUsuarios.SelectedItem.ToString().Split(' ').LastOrDefault();
+
+                foreach (string alumno in File.ReadAllLines($@"{Environment.CurrentDirectory}\alumnos.txt").Skip(1))
                 {
-                    File.AppendAllText($@"{Environment.CurrentDirectory}\alumno.txt", alumno);
-                    break;
+                    if (registro == alumno.Split('|')[2])
+                    {
+                        File.AppendAllText($@"{Environment.CurrentDirectory}\alumno.txt", alumno);
+                        break;
+                    }
+
                 }
 
+                this.Hide();
+                Form1 Form = new Form1();
+                Form.Show();
             }
 
-            this.Hide();
-            Form1 Form = new Form1();
-            Form.Show();
+            
         }
     }
 }

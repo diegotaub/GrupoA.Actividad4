@@ -96,9 +96,22 @@ namespace GrupoA.Actividad4
 
         private void btnAtrasSeleccionMaterias_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormDeclaracionJuradaNotificacion Form = new FormDeclaracionJuradaNotificacion();
-            Form.Show();
+            Alumno A = new Alumno();
+
+            if(A.MateriasAprobadas.Count == 6)
+            {
+                this.Hide();
+                Form1 F = new Form1();
+                F.Show();
+            }
+            else
+            {
+                this.Hide();
+                FormDeclaracionJuradaNotificacion Form = new FormDeclaracionJuradaNotificacion();
+                Form.Show();
+            }
+
+            
         }
 
         private void btnAceptarSeleccionMaterias_Click(object sender, EventArgs e)
