@@ -149,6 +149,14 @@ namespace GrupoA.Actividad4
                 error += "Debe seleccionar al menos un curso para las materias seleccionadas\n";
             }
 
+            if ((cbPrimera1.Text == cbAlternativa1.Text && cbPrimera1.SelectedIndex != -1) ||
+                (cbPrimera2.Text == cbAlternativa2.Text && cbPrimera2.SelectedIndex != -1) ||
+                (cbPrimera3.Text == cbAlternativa3.Text && cbPrimera3.SelectedIndex != -1) ||
+                (cbPrimera4.Text == cbAlternativa4.Text && cbPrimera4.SelectedIndex != -1))
+            {
+                error += "No puede seleccionar el mismo curso para ambas opciones\n";
+            }
+
             if (error == "")
             {
 

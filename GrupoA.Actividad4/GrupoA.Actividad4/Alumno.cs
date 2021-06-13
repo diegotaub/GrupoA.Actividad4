@@ -13,13 +13,13 @@ namespace GrupoA.Actividad4
         public Alumno()
         {
 
-            foreach (string carrera in File.ReadAllLines($@"{Environment.CurrentDirectory}\carreras.txt").Skip(1))
+            /*foreach (string carrera in File.ReadAllLines($@"{Environment.CurrentDirectory}\carreras.txt").Skip(1))
             {
                 if (Carrera == carrera.Split('|')[0])
                 {
                     Carrera C = new Carrera(carrera.Split('|')[0]);
                 }
-            }
+            }*/
 
             MateriasAprobadas = new List<string>();
             ListaNotas = new List<short>();
@@ -52,11 +52,11 @@ namespace GrupoA.Actividad4
                     }
                     else if (materia.Split('|')[4] == "A")
                     {
-                        Carrera C = new Carrera(Carrera);
+                        //Carrera C = new Carrera(Carrera);
                         MateriasAprobadasDJ.Add(materia.Split('|')[1]);
                     } else if (materia.Split('|')[4] == "R")
                     {
-                        Carrera C = new Carrera(Carrera);
+                        //Carrera C = new Carrera(Carrera);
                         MateriasRegularizadas.Add(materia.Split('|')[1]);
                     }
                     
